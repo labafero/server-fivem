@@ -12,6 +12,9 @@ dist/
 # FXServer runtime (baixado via scripts/download-fxserver.sh, não versionado)
 server/
 
+# Backups dos arquivos nativos do QBCore, gerados por override:build (ver labafero.json)
+.labafero/
+
 # Segredos locais (license key, senha de banco, etc.)
 .env
 .env.*

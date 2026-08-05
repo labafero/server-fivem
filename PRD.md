@@ -48,11 +48,15 @@ O desenvolvimento do servidor seguirá um padrão. Ele será gerido por um ecoss
 - Criar a interface de introdução/loading, aplicando _sound design_ autoral.
 - Validar a entrada de jogadores e o consumo de recursos (resmon) com o servidor "cru".
 
+> **Desvio registrado (2026-08-05):** a interface de loading não foi construída como resource separado. Em vez disso, o núcleo mínimo da Fase 2 (`packages/cli` + sistema de override via `labafero.json`) foi adiantado e validado diretamente no `qb-loading` do QBCore — resource sem nenhum arquivo `.lua`, portanto de baixo risco pra provar o pipeline de override antes de aplicá-lo em resources com lógica Lua (Fase 3). Detalhes: `.omc/plans/2026-08-05-fase1-loading-override.md` e `CLAUDE.md`.
+
 ### Fase 2: Automação Interna (CLI)
 
 - Construir os pacotes `packages/cli` e `packages/nui-core`.
 - Criar o dicionário de rotas no `labafero.json`.
 - Migrar a gestão dos _resources_ do QBCore para a CLI, automatizando as atualizações e a geração de _symlinks_.
+
+> Núcleo mínimo (`packages/cli` com comando `override:build`, `labafero.json`) já adiantado na Fase 1. Falta: automação completa de dependências do QBCore + geração de symlinks, e `packages/nui-core` compartilhado (hoje há só `packages/ui-loading-screen`, autônomo).
 
 ### Fase 3: Overrides e UI/UX
 

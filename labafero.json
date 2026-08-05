@@ -1,0 +1,24 @@
+{
+  "$schema": "Ver documentação em CLAUDE.md, seção 'Sistema de override (labafero.json)'.",
+  "routes": [
+    {
+      "id": "qb-loading",
+      "description": "Tela de loading autoral (Fase 1/2), substitui o loading screen padrão do QBCore.",
+      "package": "packages/ui-loading-screen",
+      "target": {
+        "resource": "server/resources/[qb]/qb-loading",
+        "files": {
+          "html/index.html": "dist/index.html",
+          "html/app.js": "dist/app.js",
+          "html/styles.css": "dist/styles.css"
+        },
+        "dirs": {
+          "assets/labafero-audio": {
+            "path": "dist/audio",
+            "optional": true
+          }
+        }
+      }
+    }
+  ]
+}

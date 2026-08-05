@@ -1,0 +1,13 @@
+{
+  "name": "@labafero/cli",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "labafero": "./bin/labafero.js"
+  },
+  "scripts": {
+    "build": "mkdir -p dist && node -e \"require('node:fs').writeFileSync('dist/.build-ok', '')\"",
+    "lint": "eslint ."
+  }
+}
