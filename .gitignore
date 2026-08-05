@@ -1,3 +1,17 @@
+# OMC state
 .omc/*
 !.omc/skills/
 !.omc/skills/**
+
+# Node / monorepo
+node_modules/
+.turbo/
+dist/
+*.log
+
+# FXServer runtime (baixado via scripts/download-fxserver.sh, não versionado)
+server/
+
+# Segredos locais (license key, senha de banco, etc.)
+.env
+.env.*

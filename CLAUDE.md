@@ -4,7 +4,18 @@ Este arquivo fornece orientações ao Claude Code (claude.ai/code) ao trabalhar 
 
 ## Status do projeto
 
-Este repositório atualmente contém apenas o `PRD.md` — nenhum código foi escrito ainda (pré-Fase 0 do roadmap abaixo). Não há monorepo, não há package.json e não há ferramental de build em vigor. Quando solicitado a iniciar a implementação, siga o plano "Fase 0: Setup do Motor e Ambiente" no PRD.md antes de assumir que qualquer ferramental já existe.
+Fase 0 em andamento. Já existem: monorepo pnpm + Turborepo (`package.json`, `pnpm-workspace.yaml`, `turbo.json`), lint/format compartilhado (`eslint.config.js`, `.prettierrc.json`), e os scripts `scripts/download-fxserver.sh` / `scripts/setup-db.sh` (ver "Comandos" abaixo). `packages/` e `resources/` ainda estão vazios (`.gitkeep`) — só serão populados nas Fases 1–2. Nenhum resource do QBCore foi instalado ainda.
+
+## Comandos
+
+```bash
+pnpm install                    # instala devDependencies do monorepo (turbo, eslint, prettier)
+pnpm lint                       # turbo run lint em todos os pacotes
+./scripts/download-fxserver.sh  # baixa o build recomendado do FXServer (Linux) em server/ (gitignored); txAdmin já vem incluso
+./scripts/setup-db.sh           # instala/configura MySQL/MariaDB nativo + cria db/user qbcore; precisa de sudo interativo, rode direto no terminal (não via automação sem TTY)
+```
+
+`server.cfg.example` na raiz documenta os convars mínimos (`sv_licenseKey`, `mysql_connection_string`) — copie para `server/server.cfg` (gitignored) antes de subir o servidor.
 
 ## O que é este projeto
 

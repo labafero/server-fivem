@@ -1,0 +1,21 @@
+# Copie este arquivo para server/server.cfg (gitignored — contém segredos) após
+# rodar scripts/download-fxserver.sh. Baseado em qbcore.net/docs/installation/linux.
+
+# Endpoints
+endpoint_add_tcp "0.0.0.0:30120"
+endpoint_add_udp "0.0.0.0:30120"
+
+# Identidade do servidor
+sv_hostname "Labafero Roleplay"
+sv_maxclients 64
+
+# Licença FiveM (https://keymaster.fivem.net)
+sv_licenseKey "your_license_key_here"
+
+# Banco de dados (ver scripts/setup-db.sh)
+set mysql_connection_string "mysql://qbcore:your_password@localhost/qbcore?charset=utf8mb4"
+
+sets sv_projectName "Labafero Roleplay"
+sets sv_projectDesc "Servidor de roleplay Labafero"
+
+# Resources ficam vazias na Fase 0 — QBCore entra na Fase 1

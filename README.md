@@ -2,7 +2,17 @@
 
 Servidor de GTA V (FiveM) de roleplay construído sobre o [QBCore](https://github.com/qbcore-framework), com foco em imersão, performance e uma UI própria de alto nível. O core do QBCore é mantido intocado e atualizável a partir do upstream, enquanto uma camada de UI em Vue 3 e sistemas de roleplay proprietários são adicionados por cima, sem fork do Lua original.
 
-> Status: pré-Fase 0 — apenas planejamento (`PRD.md`) até o momento, nenhum código de servidor ainda.
+> Status: Fase 0 em andamento — estrutura de monorepo e scripts de infra prontos, servidor ainda não subiu.
+
+## Setup (Fase 0)
+
+```bash
+pnpm install                    # dependências do monorepo (turbo, eslint, prettier)
+./scripts/download-fxserver.sh  # baixa o FXServer (Linux) + txAdmin em server/
+./scripts/setup-db.sh           # instala/configura MySQL/MariaDB nativo (pede sudo, rode direto no terminal)
+```
+
+Depois disso, copie `server.cfg.example` para `server/server.cfg`, preencha `sv_licenseKey` (via [Keymaster](https://keymaster.fivem.net)) e o `mysql_connection_string` (senha gerada em `.env` pelo `setup-db.sh`), e suba com `cd server && ./run.sh +exec server.cfg`. txAdmin fica disponível em `http://localhost:40120`.
 
 ## Arquitetura
 

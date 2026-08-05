@@ -10,6 +10,7 @@ Este projeto builda em cima do QBCore (ver `CLAUDE.md`/`PRD.md`). Nomes de expor
 ## Regra
 
 Antes de escrever ou afirmar qualquer coisa sobre:
+
 - um **export** do `qb-core` (ex.: `exports['qb-core']:GetCoreObject()`)
 - um **evento** (`RegisterNetEvent`, `RegisterServerEvent`, `TriggerEvent`/`TriggerServerEvent` relacionados a QBCore)
 - uma **function** de `QBCore.Functions.*` ou `QBCore.Shared.*`
@@ -26,6 +27,7 @@ anchored_ctx_search(queries: ["<o que você precisa saber>"], cwd: "<raiz do pro
 ```
 
 Fontes já indexadas (re-rodar `anchored_fetch_and_index` com `force: true` se suspeitar que estão desatualizadas):
+
 - Client Events — `docs/api/client-events`
 - Client Functions — `docs/api/client-functions`
 - Server Events — `docs/api/server-events`
