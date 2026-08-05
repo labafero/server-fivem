@@ -17,6 +17,12 @@ pnpm lint                       # turbo run lint em todos os pacotes
 
 `server.cfg.example` na raiz documenta os convars mínimos (`sv_licenseKey`, `mysql_connection_string`) — copie para `server/server.cfg` (gitignored) antes de subir o servidor.
 
+Pra acesso via LAN (outra máquina na rede local jogando), rode no Windows (PowerShell, como Administrador):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\windows\setup-portproxy.ps1
+```
+
 ## O que é este projeto
 
 Labafero Roleplay é um servidor de GTA V (FiveM) de roleplay construído sobre o QBCore. O objetivo é manter o core do QBCore atualizável a partir do upstream, ao mesmo tempo em que se adiciona uma UI Vue 3 customizada e de alta performance por cima dele, além de sistemas de roleplay proprietários — sem fazer fork ou modificar o Lua do QBCore diretamente.
@@ -47,3 +53,7 @@ Labafero Roleplay é um servidor de GTA V (FiveM) de roleplay construído sobre 
 
 - **Banco de dados**: MySQL/MariaDB **nativo** no WSL, não Docker. A instalação/configuração deve ser feita por um **script de setup** versionado no repo (idempotente, reexecutável), não passos manuais avulsos.
 - **Gerenciamento do FXServer**: via **txAdmin** (interface web oficial do FiveM) — não criar tooling próprio para start/stop/updates do servidor enquanto o txAdmin cobrir a necessidade.
+- **Rede (WSL2 em modo NAT)**: mantido em NAT — decisão explícita de não migrar para `networkingMode=mirrored` no `.wslconfig`, para não afetar outras aplicações já ancoradas no NAT atual. Acesso ao FXServer (porta 30120):
+  - Da própria máquina Windows: `connect localhost:30120` funciona direto (WSL2 já encaminha `localhost` automaticamente).
+  - De outra máquina na rede local: precisa do `scripts/windows/setup-portproxy.ps1` (roda no Windows como Administrador) — cria/atualiza `netsh interface portproxy` + regras de firewall apontando para o IP interno do WSL, que muda a cada reboot. Reexecutar o script sempre que for jogar em LAN após reiniciar o WSL.
+  - Exposição externa (internet/lista pública de servidores) ainda não configurada — precisaria de port forward no roteador, fora do escopo atual.
