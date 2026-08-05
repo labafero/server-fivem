@@ -7,7 +7,10 @@ endpoint_add_udp "0.0.0.0:30120"
 
 # Identidade do servidor
 sv_hostname "Labafero Roleplay"
-sv_maxclients 64
+# Chave gratuita/community do Cfx.re limita a 48 slots — acima disso o
+# servidor recusa subir ("uses more slots than allowed by the current
+# subscription"). Só suba esse número com uma licença que permita mais.
+sv_maxclients 48
 
 # Licença FiveM (https://keymaster.fivem.net)
 sv_licenseKey "your_license_key_here"
