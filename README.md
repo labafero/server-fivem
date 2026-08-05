@@ -15,7 +15,7 @@ Detalhes completos em [`PRD.md`](./PRD.md) e orientações para o Claude Code em
 
 ## Roadmap
 
-1. **Fase 0** — Setup do monorepo, Turborepo, ESLint/Prettier, download do FXServer (Linux), banco de dados local.
+1. **Fase 0** — Setup do monorepo, Turborepo, ESLint/Prettier, download do FXServer (Linux) + txAdmin, banco de dados MySQL/MariaDB nativo via script de setup.
 2. **Fase 1** — Servidor base QBCore, tela de loading/introdução com sound design, validação de entrada de jogadores e resmon.
 3. **Fase 2** — `packages/cli` + `packages/nui-core`, dicionário de rotas do `labafero.json`, automação de updates/symlinks.
 4. **Fase 3** — Primeiro override em Vue 3 (banco ou concessionária), MSW, pipeline build → injeção → validação in-game.

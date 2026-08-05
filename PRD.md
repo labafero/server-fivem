@@ -34,7 +34,8 @@ O desenvolvimento do servidor seguirá um padrão. Ele será gerido por um ecoss
 ### Fase 0: Setup do Motor e Ambiente
 *   Configurar o diretório do monorepo no sistema de arquivos do Linux (WSL).
 *   Inicializar o Turborepo com regras globais de ESLint e Prettier.
-*   Baixar o artefato do FXServer (Linux) e configurar o banco de dados local.
+*   Baixar o artefato do FXServer (Linux) e instalar o **txAdmin** para gerenciamento do servidor.
+*   Configurar o banco de dados **MySQL/MariaDB nativo** (sem Docker) via **script de setup** próprio, para instalação repetível.
 
 ### Fase 1: O Servidor Base e Atmosfera
 *   Instalar e configurar os repositórios *core* do QBCore manualmente para validar chaves de licença e conexão.

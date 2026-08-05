@@ -20,7 +20,7 @@ Labafero Roleplay é um servidor de GTA V (FiveM) de roleplay construído sobre 
 
 ## Roadmap (define a ordem de construção — não pule etapas)
 
-1. **Fase 0**: Configurar a estrutura de diretórios do monorepo no WSL, inicializar o Turborepo com configuração compartilhada de ESLint/Prettier, baixar o artefato do FXServer (Linux) e configurar o banco de dados local.
+1. **Fase 0**: Configurar a estrutura de diretórios do monorepo no WSL, inicializar o Turborepo com configuração compartilhada de ESLint/Prettier, baixar o artefato do FXServer (Linux), instalar o txAdmin e configurar o banco de dados MySQL/MariaDB nativo via script de setup.
 2. **Fase 1**: Instalar os resources core do QBCore manualmente (validar chaves de licença/conexão) para obter um servidor base estável e não modificado; construir a UI de loading/introdução com sound design customizado; validar o fluxo de entrada de jogadores e o resmon no servidor "cru".
 3. **Fase 2**: Construir `packages/cli` e `packages/nui-core`; definir o dicionário de rotas do `labafero.json`; migrar o gerenciamento de resources do QBCore para a CLI (atualizações automatizadas + geração de symlinks).
 4. **Fase 3**: Construir o primeiro override em Vue 3 (ex.: UI de banco ou concessionária), configurar o MSW para simulação de backend no navegador, e validar de ponta a ponta o pipeline de build via CLI → injeção no QBCore → substituição in-game.
@@ -31,3 +31,8 @@ Labafero Roleplay é um servidor de GTA V (FiveM) de roleplay construído sobre 
 - A lógica Lua do QBCore deve permanecer não modificada pelo sistema de override — apenas os assets de UI compilados (`.html`/`.js`) são substituídos, via o manifesto `labafero.json`, nunca editados manualmente no lugar.
 - O código frontend de NUI permanece agnóstico de ambiente (sem branches `if dev`); o MSW cuida da separação dev/prod externamente.
 - O fluxo de symlink/build orientado pela CLI é o que mantém o QBCore atualizável a partir do upstream — evite modificar diretamente os arquivos de resources vendorizados do QBCore mesmo para correções rápidas.
+
+## Decisões de infraestrutura (Fase 0)
+
+- **Banco de dados**: MySQL/MariaDB **nativo** no WSL, não Docker. A instalação/configuração deve ser feita por um **script de setup** versionado no repo (idempotente, reexecutável), não passos manuais avulsos.
+- **Gerenciamento do FXServer**: via **txAdmin** (interface web oficial do FiveM) — não criar tooling próprio para start/stop/updates do servidor enquanto o txAdmin cobrir a necessidade.
